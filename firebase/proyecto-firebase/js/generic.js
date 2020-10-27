@@ -15,7 +15,7 @@ firebase.initializeApp(firebaseConfig);
 // firebase.analytics();
 
 function checkAuth() {
-    firebase.onAuthStateChanged(
+    firebase.auth().onAuthStateChanged(
         res => {
             if (res == null) {
                 document.getElementById("itemSalir").style.display = "none";
@@ -24,8 +24,8 @@ function checkAuth() {
                 document.getElementById("itemMisPrestamos").style.display = "none";
                 document.getElementById("itemRegistro").style.display = "inline-block";
 
-                document.getElementById("divRedes").style.visibility="visible";
-                document.getElementById("divDatosUso").style.visibility="hidden";
+                document.getElementById("divRedes").style.visibility = "visible";
+                document.getElementById("divDatosUso").style.visibility = "hidden";
 
             } else {
                 document.getElementById("itemSalir").style.display = "inline-block";
@@ -34,8 +34,8 @@ function checkAuth() {
                 document.getElementById("itemMisPrestamos").style.display = "inline-block";
                 document.getElementById("itemRegistro").style.display = "none";
 
-                document.getElementById("divRedes").style.visibility="hidden";
-                document.getElementById("divDatosUso").style.visibility="visible";
+                document.getElementById("divRedes").style.visibility = "hidden";
+                document.getElementById("divDatosUso").style.visibility = "visible";
             }
         }
     );
