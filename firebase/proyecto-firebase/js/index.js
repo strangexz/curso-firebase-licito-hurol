@@ -1,3 +1,7 @@
+window.onload = () => {
+    checkAuth();
+}
+
 function crearUsuario() {
     console.log('func crearUsuario');
     var email = document.getElementById("emailReg").value;
