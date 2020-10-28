@@ -24,8 +24,11 @@ function checkAuth() {
                 document.getElementById("itemMisPrestamos").style.display = "none";
                 document.getElementById("itemRegistro").style.display = "inline-block";
 
-                document.getElementById("divRedes").style.visibility = "visible";
                 document.getElementById("divDatosUso").style.visibility = "hidden";
+
+                if (document.getElementById("divRedes")) {
+                    document.getElementById("divRedes").style.visibility = "visible";
+                }
 
             } else {
                 document.getElementById("itemSalir").style.display = "inline-block";
@@ -34,8 +37,17 @@ function checkAuth() {
                 document.getElementById("itemMisPrestamos").style.display = "inline-block";
                 document.getElementById("itemRegistro").style.display = "none";
 
-                document.getElementById("divRedes").style.visibility = "hidden";
                 document.getElementById("divDatosUso").style.visibility = "visible";
+
+                if (document.getElementById("divRedes")) {
+                    document.getElementById("divRedes").style.visibility = "hidden";
+                }
+
+                if (res.displayName != null) {
+                    document.getElementById("lblNombreUsuario").innerHTML = "Bienvenido " + res.displayName;
+                }else{
+                    document.getElementById("lblNombreUsuario").innerHTML = "Bienvenido " + res.email;
+                }
             }
         }
     );
